@@ -17,55 +17,17 @@
     <?php include 'partial/_header.php'; ?>
     <!-- connection to the database -->
     <?php include 'partial/_dbconnect.php'; ?>
-    <?php  
-    $ids = $_GET['catid'];
-    $sql = "SELECT * FROM `category` WHERE category_sno=$ids";
-    $result = mysqli_query($conn, $sql);
-    while ($row = mysqli_fetch_assoc($result)){
-        $catname = $row['category_name'];
-        $catdesc = $row['category_description'];
-    }
-    ?>
     <!-- fecth the categories -->
     <div class="container my-3">
-        <!-- Added a jumbtron -->
         <div class="jumbotron">
-            <h1 class="display-4">Welcome to <?php echo $catname; ?> Forum</h1>
-            <p class="lead"><?php echo $catdesc; ?></p>
+            <h1 class="display-4">Hello, world!</h1>
+            <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention
+                to featured content or information.</p>
             <hr class="my-4">
-            <p>Please use this forum without any violence</p>
-            <a class="btn btn-primary btn-lg" href="" role="button">Learn more</a>
+            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
         </div>
     </div>
-
-    <!-- Added a media object -->
-
-
-    <div class="container">
-        <h2>Browse Question</h2>
-        <?php  
-        $id = $_GET['catid'];
-        $sql = "SELECT * FROM `threads` WHERE thread_cat_id=$id";
-        $result = mysqli_query($conn, $sql);
-        while ($row = mysqli_fetch_assoc($result)){
-        $id = $row['thread_id'];
-        $title = $row['thread_title'];
-        $desc = $row['thread_description'];
-    
-        echo '<div class="media my-3">
-            <img src="imgs/user.png" width="35px" class="mr-3" alt="...">
-            <div class="media-body">
-                <h5 class="mt-0"><a href="thread.php">'.$title .'</a></h5>
-                '. $desc.'
-            </div>
-        </div>
-        <hr>';
-     }
-     ?>
-    </div>
-
-
-
 
 
 
