@@ -22,18 +22,18 @@
     $sql = "SELECT * FROM `threads` WHERE thread_id = $id";
     $result = mysqli_query($conn, $sql);
     while ($row = mysqli_fetch_assoc($result)){
-        $catname = $row['category_name'];
-        $catdesc = $row['category_description'];
+        $name = $row['thread_title'];
+        $desc = $row['thread_description'];
     }
     ?>
     <!-- fecth the categories -->
     <div class="container my-3">
         <!-- Added a jumbtron -->
         <div class="jumbotron">
-            <h1 class="display-4">Welcome to <?php echo $catname; ?> Forum</h1>
-            <p class="lead"><?php echo $catdesc; ?></p>
+            <h1 class="display-4"><?php echo $name; ?></h1>
+            <p class="lead"><?php echo $desc; ?></p>
             <hr class="my-4">
-            <p>Please use this forum without any violence</p>
+            <!-- <p>Please use this forum without any violence</p> -->
             <a class="btn btn-primary btn-lg" href="" role="button">Learn more</a>
         </div>
     </div>
@@ -44,8 +44,8 @@
     <div class="container">
         <h2>Browse Question</h2>
         <?php  
-        $id = $_GET['catid'];
-        $sql = "SELECT * FROM `threads` WHERE thread_cat_id=$id";
+        $id = $_GET['threadid'];
+        $sql = "SELECT * FROM `threads` WHERE thread_id=$id";
         $result = mysqli_query($conn, $sql);
         while ($row = mysqli_fetch_assoc($result)){
         $id = $row['thread_id'];
@@ -55,12 +55,11 @@
         echo '<div class="media my-3">
             <img src="imgs/user.png" width="35px" class="mr-3" alt="...">
             <div class="media-body">
-                <h5 class="mt-0"><a href="thread.php">'.$title .'</a></h5>
+                <h5 class="mt-0"><a href="#">'.$title .'</a></h5>
                 '. $desc.'
             </div>
         </div>
-        <hr>
-     </div>';
+        <hr>';
      }
      ?>
     </div>

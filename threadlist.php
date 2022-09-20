@@ -41,25 +41,27 @@
     <!-- Added a new container to set all the question -->
     <div class="container">
         <h1 class="py-3">Browse Question</h1>
-        <div class="media">
+
+        <?php 
+  $id = $_GET['catid'];
+  $sql = "SELECT * FROM `threads` WHERE thread_cat_id=$id";
+  $result = mysqli_query($conn, $sql);
+  while ($row = mysqli_fetch_assoc($result)){
+      $id = $row['thread_id'];
+      $title = $row['thread_title'];
+      $desc = $row['thread_description'];
+  
+
+        echo '<div class="media my-3">
             <img src="imgs/user.png"  width="40px"; class="mr-3" alt="...">
             <div class="media-body">
-                <h5 class="mt-0">Media heading</h5>
-                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus
-                odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate
-                fringilla. Donec lacinia congue felis in faucibus.
+                <h5 class="mt-0"><a href="thread.php?threadid='.$id.'">'. $title .'</a></h5>
+                '. $desc . '
             </div>
-        </div>
-        <hr>
-        <div class="media">
-            <img src="imgs/user.png"  width="40px"; class="mr-3" alt="...">
-            <div class="media-body">
-                <h5 class="mt-0">Media heading</h5>
-                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus
-                odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate
-                fringilla. Donec lacinia congue felis in faucibus.
-            </div>
-        </div>
+        </div>';
+    }
+    ?>
+        
     </div>
 
 
