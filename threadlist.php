@@ -19,20 +19,19 @@
     <?php include 'partial/_dbconnect.php'; ?>
     <!-- fecth the categories -->
     <?php 
-    $id = $_GET['catid'];
-    $sql = "SELECT * FROM `category` WHERE category_sno = $id";
-    $result = mysqli_query($conn, $sql);
-    while ($row = mysqli_fetch_assoc($result)){
-        $catname = $row['category_name'];
-        $catdesc = $row['category_description'];
-    }
-    ?>
+  $id = $_GET['catid'];
+  $sql = "SELECT * FROM `category` WHERE category_sno=$id";
+  $result = mysqli_query($conn, $sql);
+  while ($row = mysqli_fetch_assoc($result)){
+      $catname = $row['category_name'];
+      $catdesc = $row['category_description'];
+  }
+  ?>
 
     <div class="container my-3">
         <div class="jumbotron">
             <h1 class="display-4">Welcome to <?php echo $catname; ?> Forum</h1>
-            <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention
-                to featured content or information.</p>
+            <p class="lead"><?php echo $catdesc; ?></p>
             <hr class="my-4">
             <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
             <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
