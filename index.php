@@ -18,6 +18,7 @@
     <div class="container my-3">
        <h2 class="text-center">Welcome to Discuss Forum</h2>
        <div class="row">
+        <!-- fetch the thread -->
     <?php 
     $sql = "SELECT * FROM `category`";
     $result = mysqli_query($conn, $sql);

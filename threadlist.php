@@ -18,8 +18,8 @@
     <!-- connection to the database -->
     <?php include 'partial/_dbconnect.php'; ?>
     <?php  
-    $id = $_GET['catid'];
-    $sql = "SELECT * FROM `category` WHERE category_sno=$id";
+    $ids = $_GET['catid'];
+    $sql = "SELECT * FROM `category` WHERE category_sno=$ids";
     $result = mysqli_query($conn, $sql);
     while ($row = mysqli_fetch_assoc($result)){
         $catname = $row['category_name'];
@@ -59,8 +59,7 @@
                 '. $desc.'
             </div>
         </div>
-        <hr>
-     </div>';
+        <hr>';
      }
      ?>
     </div>
