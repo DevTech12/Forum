@@ -55,7 +55,7 @@
         echo '<div class="media my-3">
             <img src="imgs/user.png" width="35px" class="mr-3" alt="...">
             <div class="media-body">
-                <h5 class="mt-0"><a href="thread.php?threadid='. $id .'">'.$title .'</a></h5>
+                <h5 class="mt-0"><a href="thread.php">'.$title .'</a></h5>
                 '. $desc.'
             </div>
         </div>

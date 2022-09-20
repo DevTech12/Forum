@@ -19,7 +19,7 @@
     <?php include 'partial/_dbconnect.php'; ?>
     <!-- fecth the categories -->
     <?php 
-    $id = $_GET['catid '];
+    $id = $_GET['catid'];
     $sql = "SELECT * FROM `category` WHERE category_sno = $id";
     $result = mysqli_query($conn, $sql);
     while ($row = mysqli_fetch_assoc($result)){
