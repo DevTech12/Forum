@@ -28,23 +28,17 @@
       $desc = $row['category_description'];
       echo '<div class="col-md-4 my-2">
       <div class="card" style="width: 18rem;">
-       <img src="imgs/card-'.$id .'.png" height="250px" class="card-img-top" alt="..." width=""286>
+       <img src="imgs/card-'.$id .'.png" height="250px" class="card-img-top" alt="..." width="286">
         <div class="card-body">
           <h5 class="card-title"><a href="threadlist.php?catid='. $id .'">'. $cat .'</a></h5>
           <p class="card-text">'. substr($desc, 0, 90) .'...</p>
           <a href="threadlist.php?catid='. $id .'" class="btn btn-primary">Explore</a>
         </div>
       </div>
-    </div> ';
-  
-      
-    }
-    ?>
-      
-     
-         
-         <!-- Use a for loop to iterate thriugh categories -->
-          
+     </div> ';
+
+        }
+        ?> 
        </div>
      </div>
 
