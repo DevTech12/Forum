@@ -34,7 +34,7 @@
             <p class="lead"><?php echo $desc; ?></p>
             <hr class="my-4">
             <!-- <p>Please use this forum without any violence</p> -->
-            <a class="btn btn-primary btn-lg" href="" role="button">Learn more</a>
+            <p><b>Posted by: Dev</b></p>
         </div>
     </div>
 
@@ -42,12 +42,17 @@
 
 
     <div class="container">
-        <h2>Browse Question</h2>
-        <?php  
+        <h2>Discussion</h2>
+
+
+
+        <!-- <?php  
         $id = $_GET['threadid'];
         $sql = "SELECT * FROM `threads` WHERE thread_id=$id";
         $result = mysqli_query($conn, $sql);
+        $noResult = true;
         while ($row = mysqli_fetch_assoc($result)){
+        $noResult = false; 
         $id = $row['thread_id'];
         $title = $row['thread_title'];
         $desc = $row['thread_description'];
@@ -61,7 +66,15 @@
         </div>
         <hr>';
      }
-     ?>
+     if($noResult){
+        echo '<div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1 class="display-4">No Questions ??</h1>
+          <p class="lead"><b>Be the first person to ask the question</b></p>
+        </div>
+      </div>';
+        }
+     ?>  -->
     </div>
 
 
