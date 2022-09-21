@@ -38,7 +38,7 @@
     $showAlert = true;
     if ($showAlert){
         echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
-               <strong>Success!</strong> Your comment ias added
+               <strong>Success!</strong> Your comment is added
               <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
                </button>
              </div>';
@@ -61,17 +61,17 @@
 
     <div class="container">
         <h1 class="py-3">Post a Comment</h1>
-        <form action="<?php $_SERVER['REQUEST_URI'] ?>" method="post">
+        <form action="<?php $_SERVER['REQUEST_URI'] ?>" method="POST">
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Type your Comment</label>
-                <textarea class="form-control" id="description" rows="3" name="description"></textarea>
+                <textarea class="form-control" id="comment" rows="3" name="comment"></textarea>
             </div>
             <button type="submit" class="btn btn-success">Post </button>
         </form>
     </div>
 
 
-    <div class="container">
+    <div class="container my-4">
         <h2>Discussion</h2>
 
 
@@ -85,13 +85,13 @@
         $noResult = false; 
         $id = $row['comment_id'];
         $content = $row['comment_content'];
-        
+        $time = $row['comment_time'];
     
         echo '<div class="media my-3">
             <img src="imgs/user.png" width="35px" class="mr-3" alt="...">
             <div class="media-body">
-                
-                '. $content.'
+                <p class="font-weight-bold my-0">Author  '. $time .' </p>
+                <p>'. $content.'</p>
             </div>
         </div>
         <hr>';

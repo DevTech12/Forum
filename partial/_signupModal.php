@@ -14,19 +14,19 @@
         </button>
       </div>
       <div class="modal-body">
-      <form>
+      <form action="/forum/partial/_handleSignup.php" method="POST">
         <div class="form-group">
           <label for="exampleInputEmail1">Email address</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+          <input type="email" class="form-control" id="signupEmail" name="signupEmail" aria-describedby="emailHelp" required>
           
         </div>
         <div class="form-group">
           <label for="password">Password</label>
-          <input type="password" class="form-control" id="password" name="password" required>
+          <input type="password" class="form-control" id="signupPassword" name="signupPassword" required>
         </div>
         <div class="form-group">
           <label for="cpassword">Confirm Password</label>
-          <input type="password" class="form-control" id="cpassword" name="cpassword" required>
+          <input type="password" class="form-control" id="signupCpassword" name="signupCpassword" required>
         </div>
         <div class="form-group form-check">
           <input type="checkbox" class="form-check-input" id="exampleCheck1">

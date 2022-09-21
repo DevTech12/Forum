@@ -90,13 +90,15 @@
       $id = $row['thread_id'];
       $title = $row['thread_title'];
       $desc = $row['thread_description'];
+      $time = $row['timestamp'];
         echo '<div class="media my-3">
             <img src="imgs/user.png"  width="40px"; class="mr-3" alt="...">
-            <div class="media-body">
+            <div class="media-body"><p class="font-weight-bold my-0">Author  '. $time .' </p>
                 <h5 class="mt-0"><a href="thread.php?threadid='.$id.'">'. $title .'</a></h5>
                 '. $desc . '
             </div>
-        </div>';
+        </div>
+        <hr>';
     }
 
     // echo var_dump($noResult);
