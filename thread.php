@@ -38,7 +38,16 @@
         </div>
     </div>
 
-    <!-- Added a media object -->
+    <div class="container">
+        <h1 class="py-3">Post a Comment</h1>
+        <form action="<?php $_SERVER['REQUEST_URI'] ?>" method="post">
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Type your Comment</label>
+                <textarea class="form-control" id="description" rows="3" name="description"></textarea>
+            </div>
+            <button type="submit" class="btn btn-success">Post </button>
+        </form>
+    </div>
 
 
     <div class="container">
