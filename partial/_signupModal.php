@@ -26,12 +26,9 @@
         </div>
         <div class="form-group">
           <label for="cpassword">Confirm Password</label>
-          <input type="password" class="form-control" id="signupCpassword" name="signupCpassword" required>
+          <input type="password" class="form-control" id="signupcPassword" name="signupcPassword" required>
         </div>
-        <div class="form-group form-check">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-          <label class="form-check-label" for="exampleCheck1">Check me out</label>
-        </div>
+        
         <button type="submit" class="btn btn-primary">Sign Up</button>
       </form>
       </div>

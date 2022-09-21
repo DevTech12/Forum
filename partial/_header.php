@@ -46,4 +46,20 @@
 
 include 'partial/_loginModal.php';
 include 'partial/_signupModal.php';
-?> 
+if (isset($_GET['signupsuccess']) && $_GET['signupsuccess'] == "true"){
+  echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+  <strong>Success!</strong> Your Forum account is successfully created.
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>';
+}
+else {
+  echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong>Error!</strong> You are signing up with an existing account. Please login to continue your discussion
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>';
+}
+?>
