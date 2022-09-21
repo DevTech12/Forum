@@ -26,6 +26,27 @@
         $desc = $row['thread_description'];
     }
     ?>
+
+<?php
+  $method = $_SERVER['REQUEST_METHOD'];
+  $showAlert = false;
+  if ($method == 'POST'){
+    // Insert into Comment db
+    $comment = $_POST['comment'];
+    $sql = "INSERT INTO `comments` (`comment_content`, `thread_id`, `comment_by`, `comment_time`) VALUES ('$comment', '$id', '0', current_timestamp())";
+    $result = mysqli_query($conn, $sql);
+    $showAlert = true;
+    if ($showAlert){
+        echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+               <strong>Success!</strong> Your comment ias added
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
+               </button>
+             </div>';
+        
+    }
+  }
+  ?>
+
     <!-- fecth the categories -->
     <div class="container my-3">
         <!-- Added a jumbtron -->
@@ -55,22 +76,22 @@
 
 
 
-        <!-- <?php  
+        <?php  
         $id = $_GET['threadid'];
-        $sql = "SELECT * FROM `threads` WHERE thread_id=$id";
+        $sql = "SELECT * FROM `comments` WHERE thread_id=$id";
         $result = mysqli_query($conn, $sql);
         $noResult = true;
         while ($row = mysqli_fetch_assoc($result)){
         $noResult = false; 
-        $id = $row['thread_id'];
-        $title = $row['thread_title'];
-        $desc = $row['thread_description'];
+        $id = $row['comment_id'];
+        $content = $row['comment_content'];
+        
     
         echo '<div class="media my-3">
             <img src="imgs/user.png" width="35px" class="mr-3" alt="...">
             <div class="media-body">
-                <h5 class="mt-0"><a href="#">'.$title .'</a></h5>
-                '. $desc.'
+                
+                '. $content.'
             </div>
         </div>
         <hr>';
@@ -83,7 +104,7 @@
         </div>
       </div>';
         }
-     ?>  -->
+     ?> 
     </div>
 
 
