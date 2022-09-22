@@ -97,11 +97,16 @@
         $id = $row['comment_id'];
         $content = $row['comment_content'];
         $time = $row['comment_time'];
+        $thread_user_id = $row['thread_user_id'];
+        $sql2 = "SELECT user_email FROM `users` WHERE sno ='$thread_user_id'";
+        $result2 = mysqli_query($conn, $sql2);
+        $row2 = mysqli_fetch_assoc($result2);
+        $userEmail = $row2['user_email'];
     
         echo '<div class="media my-3">
             <img src="imgs/user.png" width="35px" class="mr-3" alt="...">
             <div class="media-body">
-                <p class="font-weight-bold my-0">Author  '. $time .' </p>
+                <p class="font-weight-bold my-0">'$userEmail' - '. $time .' </p>
                 <p>'. $content.'</p>
             </div>
         </div>
