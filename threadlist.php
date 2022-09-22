@@ -104,9 +104,17 @@
       $title = $row['thread_title'];
       $desc = $row['thread_description'];
       $time = $row['timestamp'];
+      $thread_user_id = $row['thread_user_id'];
+      $sql2 = "SELECT user_email FROM `users` WHERE sno ='$thread_user_id'";
+      $result2 = mysqli_query($conn, $sql2);
+      $row2 = mysqli_fetch_assoc($result2);
+      $userEmail = $row2['user_email'];
+     
+
+
         echo '<div class="media my-3">
             <img src="imgs/user.png"  width="40px"; class="mr-3" alt="...">
-            <div class="media-body"><p class="font-weight-bold my-0">Author  '. $time .' </p>
+            <div class="media-body"><p class="font-weight-bold my-0"> '. $userEmail .' - '. $time .' </p>
                 <h5 class="mt-0"><a href="thread.php?threadid='.$id.'">'. $title .'</a></h5>
                 '. $desc . '
             </div>
