@@ -74,6 +74,7 @@
      }
      else {
         echo '<div class="container">
+        <h1 class="py-3">Post a Comment</h1>
         <div class="alert alert-warning" role="alert">
         <strong>Error!</strong> You are not logged in. Please Login to comment on the Post. 
         </div>';
