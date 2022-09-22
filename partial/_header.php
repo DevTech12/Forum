@@ -36,9 +36,9 @@
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         <p class="text-light my-0 mx-3">Welcome ' .$_SESSION['username']. '</p>
-        <button class="btn btn-success ml-1" data-toggle="modal" data-target="#loginModal">
+        <a href="partial/_logout.php" class="btn btn-success ml-1">
          Log Out
-      </button>
+      </a>
        </form>';
       }
       else {
