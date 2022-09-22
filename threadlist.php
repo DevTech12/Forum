@@ -44,7 +44,6 @@
               <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
                </button>
              </div>';
-        
     }
   }
   ?>
@@ -59,9 +58,11 @@
         </div>
     </div>
 
-    <div class="container">
+    <?php
+     if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true){
+    echo '<div class="container">
         <h1 class="py-3">Start a Discussion</h1>
-        <form action="<?php $_SERVER['REQUEST_URI'] ?>" method="post">
+        <form action="'. $_SERVER['REQUEST_URI'] .'" method="post">
             <div class="form-group">
                 <label for="exampleInputEmail1">Problem Title</label>
                 <input type="text" class="form-control" id="title" name="title" aria-describedby="emailHelp">
@@ -74,7 +75,18 @@
             </div>
             <button type="submit" class="btn btn-success">Submit</button>
         </form>
-    </div>
+    </div>';
+     }
+     else {
+        echo '<div class="container">
+        <div class="alert alert-warning" role="alert">
+        <strong>Error!</strong> You are not logged in. Please Login to comment on the Post. 
+        </div>';
+     }
+
+    ?>
+
+    
 
 
     <div class="container">

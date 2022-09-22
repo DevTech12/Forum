@@ -58,17 +58,27 @@
             <p><b>Posted by: Dev</b></p>
         </div>
     </div>
-
-    <div class="container">
+    
+    <?php
+     if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true){
+   echo '<div class="container">
         <h1 class="py-3">Post a Comment</h1>
-        <form action="<?php $_SERVER['REQUEST_URI'] ?>" method="POST">
+        <form action="'.$_SERVER['REQUEST_URI'].'" method="POST">
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Type your Comment</label>
                 <textarea class="form-control" id="comment" rows="3" name="comment"></textarea>
             </div>
             <button type="submit" class="btn btn-success">Post </button>
         </form>
-    </div>
+    </div>';
+     }
+     else {
+        echo '<div class="container">
+        <div class="alert alert-warning" role="alert">
+        <strong>Error!</strong> You are not logged in. Please Login to comment on the Post. 
+        </div>';
+     }
+    ?>
 
 
     <div class="container my-4">
@@ -99,8 +109,8 @@
      if($noResult){
         echo '<div class="jumbotron jumbotron-fluid">
         <div class="container">
-          <h1 class="display-4">No Questions ??</h1>
-          <p class="lead"><b>Be the first person to ask the question</b></p>
+          <h1 class="display-4">No Comments ??</h1>
+          <p class="lead"><b>Be the first person to comment on this Question.</b></p>
         </div>
       </div>';
         }
