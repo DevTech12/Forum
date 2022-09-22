@@ -19,13 +19,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         }
         header( "Location: /forum/index.php");
     }else {
-        echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+    header( "Location: /forum/index.php");
+    echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
         <strong>Error!</strong> You entered wrong details. Please fill the firm carefully.
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>';
-    header( "Location: /forum/index.php");
     }
 }    
 ?>
