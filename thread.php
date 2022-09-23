@@ -33,7 +33,8 @@
   if ($method == 'POST'){
     // Insert into Comment db
     $comment = $_POST['comment'];
-    $sql = "INSERT INTO `comments` (`comment_content`, `thread_id`, `comment_by`, `comment_time`) VALUES ('$comment', '$id', '0', current_timestamp())";
+    $sno = $_POST['sno'];
+    $sql = "INSERT INTO `comments` (`comment_content`, `thread_id`, `comment_by`, `comment_time`) VALUES ('$comment', '$id', '$sno', current_timestamp())";
     $result = mysqli_query($conn, $sql);
     $showAlert = true;
     if ($showAlert){
@@ -41,8 +42,7 @@
                <strong>Success!</strong> Your comment is added
               <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
                </button>
-             </div>';
-        
+             </div>'; 
     }
   }
   ?>
@@ -67,6 +67,7 @@
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Type your Comment</label>
                 <textarea class="form-control" id="comment" rows="3" name="comment"></textarea>
+                <input type="hidden" name="sno" value="'. $_SESSION["sno"] .'">
             </div>
             <button type="submit" class="btn btn-success">Post </button>
         </form>
@@ -80,6 +81,8 @@
         </div>';
      }
     ?>
+
+    
 
 
     <div class="container my-4">
@@ -97,7 +100,7 @@
         $id = $row['comment_id'];
         $content = $row['comment_content'];
         $time = $row['comment_time'];
-        $thread_user_id = $row['thread_user_id'];
+        $thread_user_id = $row['comment_by'];
         $sql2 = "SELECT user_email FROM `users` WHERE sno ='$thread_user_id'";
         $result2 = mysqli_query($conn, $sql2);
         $row2 = mysqli_fetch_assoc($result2);
@@ -106,7 +109,7 @@
         echo '<div class="media my-3">
             <img src="imgs/user.png" width="35px" class="mr-3" alt="...">
             <div class="media-body">
-                <p class="font-weight-bold my-0">'$userEmail' - '. $time .' </p>
+                <p class="font-weight-bold my-0">' . $userEmail . ' - '. $time .' </p>
                 <p>'. $content.'</p>
             </div>
         </div>

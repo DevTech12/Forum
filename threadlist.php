@@ -34,8 +34,10 @@
   if ($method == 'POST'){
     // Insert into db
     $th_title = $_POST['title'];
-    $th_desc = $_POST['description'];
-    $sql = "INSERT INTO `threads` (`thread_title`, `thread_description`, `thread_cat_id`, `thread_user_id`, `timestamp`) VALUES ('$th_title', '$th_desc', '$id', '0', current_timestamp())";
+    $th_desc = $_POST['description']; 
+    $sno = $_POST['sno'];
+
+    $sql = "INSERT INTO `threads` (`thread_title`, `thread_description`, `thread_cat_id`, `thread_user_id`, `timestamp`) VALUES ('$th_title', '$th_desc', '$id', '', current_timestamp())";
     $result = mysqli_query($conn, $sql);
     $showAlert = true;
     if ($showAlert){
@@ -66,6 +68,7 @@
             <div class="form-group">
                 <label for="exampleInputEmail1">Problem Title</label>
                 <input type="text" class="form-control" id="title" name="title" aria-describedby="emailHelp">
+                <input type="hidden" name="sno" value="'. $_SESSION["sno"] .'">
                 <small id="emailHelp" class="form-text text-muted">Please try to keep your title as small as you
                     can.</small>
             </div>
