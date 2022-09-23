@@ -24,6 +24,13 @@
     while ($row = mysqli_fetch_assoc($result)){
         $name = $row['thread_title'];
         $desc = $row['thread_description'];
+        $thread_user_id = $row['thread_user_id'];
+
+        // Query to user table to find the original poster
+        $sql2 = "SELECT user_email FROM `users` WHERE sno ='$thread_user_id'";
+        $result2 = mysqli_query($conn, $sql2);
+        $row2 = mysqli_fetch_assoc($result2);
+        $posted_by = $row2['user_email'];
     }
     ?>
 
@@ -55,7 +62,7 @@
             <p class="lead"><?php echo $desc; ?></p>
             <hr class="my-4">
             <!-- <p>Please use this forum without any violence</p> -->
-            <p><b>Posted by: Dev</b></p>
+            <p><b>Posted by: <?php echo $posted_by; ?></b></p>
         </div>
     </div>
     

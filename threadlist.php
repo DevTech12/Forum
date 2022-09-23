@@ -25,6 +25,7 @@
   while ($row = mysqli_fetch_assoc($result)){
       $catname = $row['category_name'];
       $catdesc = $row['category_description'];
+      
   }
   ?>
 
