@@ -20,11 +20,12 @@
          </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">';
         
-          $sql = "SELECT category_name FROM `category`";
+          $sql = "SELECT category_name, category_sno FROM `category`";
           $result = mysqli_query($conn, $sql);
           while ($row = mysqli_fetch_assoc($result)){
             $catname = $row['category_name']; 
-         echo '<a class="dropdown-item" href="#">'. $catname .'</a>';
+            $catid = $row['category_sno']; 
+         echo '<a class="dropdown-item" href="threadlist.php?catid='. $catid .'">'. $catname .'</a>';
           }
 
           echo '</div>

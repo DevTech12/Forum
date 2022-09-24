@@ -16,6 +16,7 @@
 <body>
     <!-- connection to the database -->
     <?php include 'partial/_dbconnect.php'; ?>
+    
     <?php include 'partial/_header.php'; ?>
     
     <!-- fecth the categories -->

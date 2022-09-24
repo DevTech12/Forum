@@ -14,9 +14,11 @@
 </head>
 
 <body>
+     <!-- connection to the database -->
+     <?php include 'partial/_dbconnect.php'; ?>
+     
     <?php include 'partial/_header.php'; ?>
-    <!-- connection to the database -->
-    <?php include 'partial/_dbconnect.php'; ?>
+   
     <?php  
     $id = $_GET['threadid'];
     $sql = "SELECT * FROM `threads` WHERE thread_id = $id";
