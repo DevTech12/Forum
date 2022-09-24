@@ -14,9 +14,10 @@
 </head>
 
 <body>
-    <?php include 'partial/_header.php'; ?>
     <!-- connection to the database -->
     <?php include 'partial/_dbconnect.php'; ?>
+    <?php include 'partial/_header.php'; ?>
+    
     <!-- fecth the categories -->
     <?php 
   $id = $_GET['catid'];

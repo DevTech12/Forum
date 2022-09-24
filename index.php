@@ -11,9 +11,11 @@
     <title>Forum Website</title>
   </head>
   <body>
+     <!-- connection to the database -->
+     <?php include 'partial/_dbconnect.php'; ?> 
+     
     <?php include 'partial/_header.php'; ?> 
-    <!-- connection to the database -->
-    <?php include 'partial/_dbconnect.php'; ?> 
+   
     <!-- fecth the categories -->
     <div class="container my-3">
        <h2 class="text-center">Welcome to Discuss Forum</h2>
