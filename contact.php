@@ -11,6 +11,7 @@
     <title>Forum Website</title>
   </head>
   <body>
+  <?php include 'partial/_dbconnect.php'; ?>
     <?php include 'partial/_header.php'; ?> 
 
 
